@@ -13,6 +13,9 @@ namespace StarterAssets {
 		public delegate void FireHandler(bool isFiring);
 		public static event FireHandler FireEvent;
 		
+		public delegate void ConstructionUIMenuHandler();
+		public static event ConstructionUIMenuHandler ConstructionUIMenuEvent;
+		
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
@@ -38,7 +41,7 @@ namespace StarterAssets {
 				LookInput(value.Get<Vector2>());
 			}
 		}
-
+		
 		public void OnJump(InputValue value) {
 			JumpInput(value.isPressed);
 		}
@@ -56,6 +59,10 @@ namespace StarterAssets {
 			FireInput(value.isPressed);
 			FireEvent?.Invoke(value.isPressed);
 		}
+		
+		public void OnOpenConstructionMenu(InputValue value) {
+			ConstructionUIMenuEvent?.Invoke();
+		}
 #endif
 
 
@@ -66,7 +73,7 @@ namespace StarterAssets {
 		public void LookInput(Vector2 newLookDirection) {
 			look = newLookDirection;
 		}
-
+		
 		public void JumpInput(bool newJumpState) {
 			Jump = newJumpState;
 		}

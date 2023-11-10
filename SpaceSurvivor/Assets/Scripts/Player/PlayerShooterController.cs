@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using StarterAssets;
 using UnityEngine;
@@ -6,8 +5,6 @@ using UnityEngine;
 public class PlayerShooterController : MonoBehaviour {
 
     public LayerMask AimLayerCollider;
-    public Transform SpawnTransform;
-    public GameObject BulletPf;
     public float FireCooldown;
     public CinemachineVirtualCamera CinemachineVirtualCamera;
 
